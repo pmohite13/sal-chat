@@ -1,0 +1,35 @@
+<p>Following memebers joined: </p>
+<ul>
+  <li *ngFor="let user of users">
+    {{user.nickName}}
+    <button type="button" (click)="sendLike(user)">Send Like</button>
+  </li>
+</ul>
+<div class="row">
+  <ul>
+    <li *ngFor="let like of likes">
+      {{like}} sent like
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+
+  <form [formGroup]="chatFormGroup" (ngSubmit)="onSend()">
+
+    <label>
+      <input type="text" formControlName="message" placeholder="Type a message">
+    </label>
+
+    <button type="submit">Send</button>
+
+  </form>
+</div>
+
+<div class="row">
+  <ul class="list-unstyled">
+    <li *ngFor="let m of messages">
+      <b>{{m.from}}</b>&nbsp; : {{m.message}}
+    </li>
+  </ul>
+</div>
